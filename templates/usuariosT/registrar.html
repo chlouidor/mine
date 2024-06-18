@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Registrar{% endblock title %}
+
+
+{% block content %}
+
+<h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Agregar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+</h1>
+
+<div style="text-align: center;">
+    <h2>Formulario CRUD para usuarios</h2><br>
+    <form action="regis_usuario" method="POST">
+        {% csrf_token %}
+
+        <pre>Rut:  <input type="text"name="rut"> </pre>
+        <pre>Nombre:  <input type="text"name="nombre"> </pre>
+        <pre>Apellido P:  <input type="text"name="paterno"> </pre>
+        <pre>Apellido M:  <input type="text"name="materno"> </pre>
+        <pre>Fecha Nac:  <input type="date"name="fechaNac"> </pre>
+        <pre>Genero: <input type="number"name="genero"> </pre>
+        </pre>
+        <pre>Celular:  <input type="text"name="telefono"> </pre>
+        <pre>Email:  <input type="email"name="email"> </pre>
+        <pre>Direccion:  <input type="text"name="direccion"> </pre>
+
+        <input type="submit" name="opcion" value="Agregar">
+    </form><br><br>
+    <a href="{% url 'crud' %}">Volver</a>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
