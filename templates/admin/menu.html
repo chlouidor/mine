@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %} Gestion  {% endblock title %}
+
+
+
+{% block content %}
+
+    <div class="container">
+        {% if usuarios %}
+            <br><br>
+            {% for usuario in usuarios %}
+
+                {{usuario}}<br>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+{% endblock content %}

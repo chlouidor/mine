@@ -1,13 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Crud</title>
+</head>
+<body>
+    <h1>lista de usuarios</h1>
 
-{% extends "layout/base.html" %}
-
-{% block title %}lista usuarios{% endblock title %}
-
-
-{% block content %}
-
-    <button type="button" style="margin-top: 3%; margin-left: 1%; " >
-        <a href="{% url 'regis_usuario' %}" >Agregar</a>
+    <button type="button">
+        <a href="{% url 'regis_usuario' %}">Agregar</a>
     </button>
 
     <div id="idMensajes">
@@ -26,8 +29,10 @@
             {% for usuario in usuarios %}
                 <tr>
                     <td>{{usuario.rut}}</td>
-                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.nombre.nombre}}</td>
                     <td>{{usuario.apellido_paterno}}</td>
+                    <td><a href="{% url 'usuarios_del' pk=usuario.rut %}">Eliminar</a></td>
+                    <td><a href="{% url 'usuarios_findEdit' pk=usuario.rut %}">Modificar</a></td>
                 </tr>
             {% endfor %}
         {% endif %}
@@ -39,4 +44,5 @@
     });
 </script>
 
-{% endblock content %}
+</body>
+</html>

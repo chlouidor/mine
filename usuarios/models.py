@@ -25,3 +25,5 @@ class Usuario(models.Model):
 
     class Meta:
         ordering=['rut']
+
+        

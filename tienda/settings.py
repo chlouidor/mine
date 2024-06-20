@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'zapatosApp.apps.ZapatosConfig',
-    'usuarios.apps.UsuariosConfig'
+    'zapatosApp',
+    'usuarios',
+    'admini'
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL = "menu"
+LOGOUT_REDIRECT_URL = "home"
 
 WSGI_APPLICATION = 'tienda.wsgi.application'
 
